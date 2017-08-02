@@ -10,7 +10,7 @@ class Photographer{
 
 
 
-  public Photographer(String name, String model, String filter, String resolution, Boolean noise_reduction) {
+  public Photographer(String name, String model, String filter, String resolution, Boolean noiseReduction) {
     this.name = name;
     this.model = model;
     this.filter = filter;
@@ -48,18 +48,37 @@ class Photographer{
      return this.noiseReduction;
   }
 
- public void addCamera ( Printable camera ) {
+  public int cameraCount () {
+
+       return this.bag.size(); 
+
+  }
+
+
+  public void addCamera ( Printable camera ) {
 
        this.bag.add(camera);
 
   }
   
 
-  public void disposeCamera( Printable camera) {
+  public void removeCamera( Printable camera) {
 
        this.bag.remove(camera);
 
       }
+
+  public String cameraDetails() {
+
+     String details = "";
+     for (int i=0; i < this.bag.size(); i++) {
+
+      details+= this.bag.get(i).printDetails(); 
+       
+     }
+
+     return details;
+  }
       
      
   }

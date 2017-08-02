@@ -58,7 +58,7 @@ public class PhotographerTest {
 
 
     @Test
-    public void bagStartEmpty(camera) {
+    public void bagStartEmpty() {
       assertEquals(0, photographer.cameraCount());
 
 
@@ -66,8 +66,8 @@ public class PhotographerTest {
     
     @Test
     public void canAddCamera() {
-       photographer.add( digitalCamera);
-       photographer.add( analogCamera);
+       photographer.addCamera( digitalCamera);
+       photographer.addCamera( analogCamera);
 
        assertEquals(2, photographer.cameraCount());
     }
@@ -76,18 +76,18 @@ public class PhotographerTest {
 
     @Test
     public void  canRemoveCamera() {
-      photographer.remove(digitalCamera);
-      assertEquals(1, photographer.cameraCount());
+      photographer.addCamera( digitalCamera);
+      photographer.removeCamera(digitalCamera);
+      assertEquals(0, photographer.cameraCount());
 
     }
 
-    // @Test
-    // public void canStoreHuman() {
+    @Test
+    public void canPrint() {
+    photographer.addCamera(digitalCamera);
+    assertEquals("printable", photographer.cameraDetails());
 
-    //  bear.eat(human);
-    //  assertEquals (1, bear.foodCount());
-    // }
-
+    }
     
 
 }
